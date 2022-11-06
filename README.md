@@ -109,7 +109,7 @@ fitbitAuthorizer.SetToken(dbToken)
 
 // Create the client
 var fb *client.Client
-if fb, err = api.NewAPI(fitbitAuthorizer); err != nil {
+if fb, err = client.NewClient(fitbitAuthorizer); err != nil {
     return err
 }
 
