@@ -20,7 +20,7 @@ Once you have created a Fitbit Developer account you have to register a new appl
 
 You also need to be familiar with some Web Framework (not shown).
 
-1. Create a type that implements the `fitbit.Storage` interface. You can see an implementation based on PostgreSQL, through the package [galeone/igor](https://github.com/galeone/igor) here:
+1. Create a type that implements the `fitbit.Storage` interface. You can see an implementation based on PostgreSQL, through the package [galeone/igor](https://github.com/galeone/igor) here: [galeone/fitbit-pgdb](https://github.com/galeone/fitbit-pgdb).
 1. Create a `fitbit.Authorizer` object
 1. Create the endpoint for the authorization flow. The content should look like
    ```go
