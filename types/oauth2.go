@@ -26,17 +26,10 @@ func (AuthorizedUser) TableName() string {
 	return "oauth2_authorized"
 }
 
-// OAuth2ErrorMessage represents the basic unit used by the Fitbit API for
-// sending messages during the OAuth2 authorization flow.
-type OAuth2ErrorMessage struct {
-	ErrorType string `json:"errorType"`
-	Message   string `json:"message"`
-}
-
 // OAuth2Error represents the payload received in case of error, during the
 // OAuth2 authorization flow
 type OAuth2Error struct {
-	Errors  []OAuth2ErrorMessage
+	Errors  []APIError
 	Success bool `json:"success"`
 }
 
