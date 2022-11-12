@@ -84,6 +84,11 @@ func (d *FitbitTime) UnmarshalJSON(b []byte) (err error) {
 		d.Time = time.Time{}
 		return
 	}
+	// Contains microseconds aa:bb:cc
+	if strings.Count(s, ":") == 2 {
+		// aa:bb
+		s = strings.Join(strings.Split(s, ":")[:2], ":")
+	}
 	d.Time, err = time.Parse(TimeLayout, s)
 	return
 }
