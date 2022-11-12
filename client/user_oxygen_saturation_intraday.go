@@ -30,14 +30,16 @@ func (c *Client) UserOxygenSaturationIntraday(startDate, endDate *time.Time) (re
 		// /1/user/[user-id]/spo2/date/[start-date]/[end-date]/all.json
 		sb.WriteString(fmt.Sprintf("/%s", endDate.Format(types.DateLayout)))
 	}
-	sb.WriteString("all.json")
+	sb.WriteString("/all.json")
 	if res, err = c.req.Get(UserV1(sb.String())); err != nil {
 		return
 	}
+
 	var body []byte
 	if body, err = c.resRead(res); err != nil {
 		return
 	}
+
 	ret = &types.OxygenSaturationIntraday{}
 	err = json.Unmarshal(body, ret)
 	return

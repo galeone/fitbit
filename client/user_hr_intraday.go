@@ -17,7 +17,7 @@ import (
 // The response will include the activity detail second by second.
 // The endDate parameter is optional. When present it should be in a 24 hours range between the start date.
 // Minutes are considered.
-func (c *Client) UserHeartRateIntraday(startDate, endDate *time.Time) (ret *types.HeartRateSeries, err error) {
+func (c *Client) UserHeartRateIntraday(startDate, endDate *time.Time) (ret *types.HeartRateIntraday, err error) {
 	var res *http.Response
 	hasEndDate := endDate != nil && !endDate.IsZero()
 
@@ -37,6 +37,7 @@ func (c *Client) UserHeartRateIntraday(startDate, endDate *time.Time) (ret *type
 	if body, err = c.resRead(res); err != nil {
 		return
 	}
+	ret = &types.HeartRateIntraday{}
 	err = json.Unmarshal(body, ret)
 	return
 

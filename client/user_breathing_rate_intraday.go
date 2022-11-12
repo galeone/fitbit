@@ -26,14 +26,17 @@ func (c *Client) UserBreathingRateIntraday(startDate, endDate *time.Time) (ret *
 		// /1/user/[user-id]/br/date/[start-date]/[end-date]/all.json
 		sb.WriteString(fmt.Sprintf("/%s", endDate.Format(types.DateLayout)))
 	}
-	sb.WriteString("all.json")
-	if res, err = c.req.Get(UserV1(sb.String())); err != nil {
+	sb.WriteString("/all.json")
+	path := sb.String()
+	if res, err = c.req.Get(UserV1(path)); err != nil {
 		return
 	}
+
 	var body []byte
 	if body, err = c.resRead(res); err != nil {
 		return
 	}
+
 	ret = &types.BreathingRateIntraday{}
 	err = json.Unmarshal(body, ret)
 	return

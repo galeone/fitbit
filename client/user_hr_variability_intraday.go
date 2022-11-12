@@ -36,7 +36,7 @@ func (c *Client) UserHeartRateVariabilityIntraday(startDate, endDate *time.Time)
 		// /1/user/[user-id]/hrv/date/[startDate]/[endDate]/all.json
 		sb.WriteString(fmt.Sprintf("/%s", endDate.Format(types.DateLayout)))
 	}
-	sb.WriteString("all.json")
+	sb.WriteString("/all.json")
 	if res, err = c.req.Get(UserV1(sb.String())); err != nil {
 		return
 	}
