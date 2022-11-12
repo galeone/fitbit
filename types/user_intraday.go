@@ -59,7 +59,7 @@ type BreathingRateIntraday struct {
 }
 
 type BreathingRateTimePointIntraday struct {
-	DateTime FitbitDateTime               `json:"dateTime"`
+	DateTime FitbitDate                   `json:"dateTime"`
 	Value    BreathingRateIntradaySummary `json:"value"`
 }
 
@@ -72,7 +72,7 @@ type BreathingRateIntradaySummary struct {
 
 // /activities/heart/date/%s/%s/%s/time/%s/%s.json
 
-type HeartRateSeriesIntraday struct {
+type HeartRateIntraday struct {
 	HeartRateSeries
 	HeartRateIntraday TimeSeriesIntraday `json:"activities-heart-intraday"`
 }
@@ -96,13 +96,13 @@ type HeartRateVariabilityTimeStepIntraday struct {
 }
 
 type HeartRateVariabilityMinute struct {
-	Minute FitbitDateTime                    `json:"minute"`
+	Minute FitbitDate                        `json:"minute"`
 	Value  HeartRateVariabilityValueIntraday `json:"value"`
 }
 
 // /spo2/date/%s/%s/all.json
 
-type OxygenSaturationIntraday []struct {
+type OxygenSaturationIntraday struct {
 	DateTime FitbitDate               `json:"dateTime"`
 	Minutes  []OxygenSaturationMinute `json:"minutes"`
 }
