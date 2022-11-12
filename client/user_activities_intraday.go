@@ -21,7 +21,7 @@ func (c *Client) userActivityIntradayByRange(resource string, startDate, endDate
 	// Same route, but with a period of 1d instead of and end date
 	if hasEndDate {
 		// /1/user/[user-id]/activities/[resource]/date/[date]/1d/[detail-level]/time/[start-time]/[end-time].json
-		path = fmt.Sprintf("/activities/%s/date/%s/1d/1min/time/%s/%s/.json", resource, startDate.Format(types.DateLayout), startDate.Format(types.TimeLayout), endDate.Format(types.TimeLayout))
+		path = fmt.Sprintf("/activities/%s/date/%s/1d/1min/time/%s/%s.json", resource, startDate.Format(types.DateLayout), startDate.Format(types.TimeLayout), endDate.Format(types.TimeLayout))
 	} else {
 		// /1/user/[user-id]/activities/[resource]/date/[date]/1d/[detail-level].json
 		path = fmt.Sprintf("/activities/%s/date/%s/1d/1min.json", resource, startDate.Format(types.DateLayout))
@@ -29,10 +29,12 @@ func (c *Client) userActivityIntradayByRange(resource string, startDate, endDate
 	if res, err = c.req.Get(UserV1(path)); err != nil {
 		return
 	}
+
 	var body []byte
 	if body, err = c.resRead(res); err != nil {
 		return
 	}
+
 	// https://dev.fitbit.com/build/reference/web-api/intraday/get-activity-intraday-by-date/ (resource)
 	switch resource {
 	case "calories":
