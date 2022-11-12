@@ -46,11 +46,16 @@ func (d *FitbitDateTime) UnmarshalJSON(b []byte) (err error) {
 		return
 	}
 	// First try with the custom layout
-	if d.Time, err = time.Parse(DateTimeLayout, s); err != nil {
-		// In case of error, try with the standard parsing of format
-		// time.RFC3339
-		d.Time, err = time.Parse(time.RFC3339, s)
+	if d.Time, err = time.Parse(DateTimeLayout, s); err == nil {
+		return
 	}
+	// In case of error, try to add the seconds (sometimes the reponse have them)
+	if d.Time, err = time.Parse(DateTimeLayout+":05", s); err == nil {
+		return
+	}
+	// Last resort, try with the standard parsing of format
+	// time.RFC3339
+	d.Time, err = time.Parse(time.RFC3339, s)
 	return
 }
 
@@ -66,6 +71,11 @@ func (d *FitbitDate) UnmarshalJSON(b []byte) (err error) {
 	if s == "null" || s == "" {
 		d.Time = time.Time{}
 		return
+	}
+	// 2022-11-12T00:00:00.000 -> 2022-11-12
+	idx := strings.IndexRune(s, 'T')
+	if idx != -1 {
+		s = s[:idx]
 	}
 	d.Time, err = time.Parse(DateLayout, s)
 	return
@@ -83,6 +93,11 @@ func (d *FitbitTime) UnmarshalJSON(b []byte) (err error) {
 	if s == "null" || s == "" {
 		d.Time = time.Time{}
 		return
+	}
+	// Contains microseconds aa:bb:cc
+	if strings.Count(s, ":") == 2 {
+		// aa:bb
+		s = strings.Join(strings.Split(s, ":")[:2], ":")
 	}
 	d.Time, err = time.Parse(TimeLayout, s)
 	return
