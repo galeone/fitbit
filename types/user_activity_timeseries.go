@@ -60,7 +60,7 @@ type MinutesLightlyActiveSeries struct {
 
 // /activities/%s/date/%s/%s.json
 
-type MinutesFailryActiveSeries struct {
+type MinutesFairlyActiveSeries struct {
 	TimeSeries []TimeStep `json:"activities-minutesFairlyActive"`
 }
 

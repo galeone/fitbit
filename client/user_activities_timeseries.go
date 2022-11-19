@@ -52,7 +52,7 @@ func (c *Client) userActivityTimeseriesByRange(resource string, startDate, endDa
 	case "minutesLightlyActive":
 		ret = &types.MinutesLightlyActiveSeries{}
 	case "minutesFairlyActive":
-		ret = &types.MinutesFailryActiveSeries{}
+		ret = &types.MinutesFairlyActiveSeries{}
 	case "minutesVeryActive":
 		ret = &types.MinutesVeryActiveSeries{}
 	case "steps":
@@ -152,15 +152,15 @@ func (c *Client) UserMinutesLightlyActiveTimeseries(startDate, endDate *time.Tim
 	return val.(*types.MinutesLightlyActiveSeries), err
 }
 
-// UserMinutesFailryActiveTimeseries retrieves the activity calories over a period of time by specifying a date range.
+// UserMinutesFairlyActiveTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
-func (c *Client) UserMinutesFailryActiveTimeseries(startDate, endDate *time.Time) (ret *types.MinutesFailryActiveSeries, err error) {
+func (c *Client) UserMinutesFairlyActiveTimeseries(startDate, endDate *time.Time) (ret *types.MinutesFairlyActiveSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("minutesFairlyActive", startDate, endDate); err != nil {
 		return nil, err
 	}
-	return val.(*types.MinutesFailryActiveSeries), err
+	return val.(*types.MinutesFairlyActiveSeries), err
 }
 
 // UserMinutesVeryActiveTimeseries retrieves the activity calories over a period of time by specifying a date range.
