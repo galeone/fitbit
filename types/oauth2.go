@@ -4,8 +4,6 @@
 
 package types
 
-import "time"
-
 // AuthorizedUser represents the payload received
 // after succesfully exchaing the Authorization Code
 // with the Fitbit OAuth2 server (Server Application Type)
@@ -13,17 +11,12 @@ import "time"
 //
 // [documentation]: https://dev.fitbit.com/build/reference/web-api/developer-guide/authorization/#Authorization-Code-Grant-Flow-with-PKCE
 type AuthorizedUser struct {
-	AccessToken  string    `json:"access_token"`
-	ExpiresIn    int64     `json:"expires_in"`
-	RefreshToken string    `json:"refresh_token"`
-	Scope        string    `json:"scope"`
-	TokenType    string    `json:"token_type"`
-	UserID       string    `json:"user_id" igor:"primary_key"`
-	CreatedAt    time.Time `sql:"default:now()"`
-}
-
-func (AuthorizedUser) TableName() string {
-	return "oauth2_authorized"
+	AccessToken  string `json:"access_token"`
+	ExpiresIn    int64  `json:"expires_in"`
+	RefreshToken string `json:"refresh_token"`
+	Scope        string `json:"scope"`
+	TokenType    string `json:"token_type"`
+	UserID       string `json:"user_id"`
 }
 
 // OAuth2Error represents the payload received in case of error, during the
@@ -35,13 +28,10 @@ type OAuth2Error struct {
 
 // AuthorizingUser is the type used during the exchange of the
 // "Code" for the tokens in the OAuth2 flow.
-// The CSRFToken is used as primary key, other than a CSRF token.
+// There's no JSON decoration because the code is taken from the URL.
+// The same goes for the CSRFToken that's placed inside the "state" URL
+// parameter.
 type AuthorizingUser struct {
-	CSRFToken string `igor:"primary_key"`
 	Code      string
-	CreatedAt time.Time `sql:"default:now()"`
-}
-
-func (AuthorizingUser) TableName() string {
-	return "oauth2_authorizing"
+	CSRFToken string
 }
