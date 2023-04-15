@@ -46,7 +46,7 @@ type ActivityLog struct {
 	OriginalDuration      int64                 `json:"originalDuration"`
 	OriginalStartTime     FitbitDateTime        `json:"originalStartTime"`
 	Pace                  float64               `json:"pace"`
-	Source                LogSource             `json:"source"`
+	Source                *LogSource            `json:"source"`
 	Speed                 float64               `json:"speed"`
 	StartTime             FitbitDateTime        `json:"startTime"`
 	Steps                 int64                 `json:"steps"`

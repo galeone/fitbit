@@ -58,7 +58,7 @@ func (c *Client) userActivityTimeseriesByRange(resource string, startDate, endDa
 	case "steps":
 		ret = &types.StepsSeries{}
 	default:
-		panic(fmt.Sprintf("resouce %s not supported", resource))
+		panic(fmt.Sprintf("resource %s not supported", resource))
 	}
 	err = json.Unmarshal(body, ret)
 	return
@@ -67,6 +67,7 @@ func (c *Client) userActivityTimeseriesByRange(resource string, startDate, endDa
 // UserActivityCaloriesTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserActivityCaloriesTimeseries(startDate, endDate *time.Time) (ret *types.ActivityCaloriesSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("activityCalories", startDate, endDate); err != nil {
@@ -78,6 +79,7 @@ func (c *Client) UserActivityCaloriesTimeseries(startDate, endDate *time.Time) (
 // UserCaloriesTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserCaloriesTimeseries(startDate, endDate *time.Time) (ret *types.CaloriesSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("calories", startDate, endDate); err != nil {
@@ -89,6 +91,7 @@ func (c *Client) UserCaloriesTimeseries(startDate, endDate *time.Time) (ret *typ
 // UserCaloriesBMRTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserCaloriesBMRTimeseries(startDate, endDate *time.Time) (ret *types.CaloriesBMRSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("caloriesBMR", startDate, endDate); err != nil {
@@ -100,6 +103,7 @@ func (c *Client) UserCaloriesBMRTimeseries(startDate, endDate *time.Time) (ret *
 // UserDistanceTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserDistanceTimeseries(startDate, endDate *time.Time) (ret *types.DistanceSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("distance", startDate, endDate); err != nil {
@@ -111,6 +115,7 @@ func (c *Client) UserDistanceTimeseries(startDate, endDate *time.Time) (ret *typ
 // UserElevationTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserElevationTimeseries(startDate, endDate *time.Time) (ret *types.ElevationSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("elevation", startDate, endDate); err != nil {
@@ -122,6 +127,7 @@ func (c *Client) UserElevationTimeseries(startDate, endDate *time.Time) (ret *ty
 // UserFloorsTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserFloorsTimeseries(startDate, endDate *time.Time) (ret *types.FloorsSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("floors", startDate, endDate); err != nil {
@@ -133,6 +139,7 @@ func (c *Client) UserFloorsTimeseries(startDate, endDate *time.Time) (ret *types
 // UserMinutesSedentaryTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserMinutesSedentaryTimeseries(startDate, endDate *time.Time) (ret *types.MinutesSedentarySeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("minutesSedentary", startDate, endDate); err != nil {
@@ -144,6 +151,7 @@ func (c *Client) UserMinutesSedentaryTimeseries(startDate, endDate *time.Time) (
 // UserMinutesLightlyActiveTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserMinutesLightlyActiveTimeseries(startDate, endDate *time.Time) (ret *types.MinutesLightlyActiveSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("minutesLightlyActive", startDate, endDate); err != nil {
@@ -155,6 +163,7 @@ func (c *Client) UserMinutesLightlyActiveTimeseries(startDate, endDate *time.Tim
 // UserMinutesFairlyActiveTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserMinutesFairlyActiveTimeseries(startDate, endDate *time.Time) (ret *types.MinutesFairlyActiveSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("minutesFairlyActive", startDate, endDate); err != nil {
@@ -166,6 +175,7 @@ func (c *Client) UserMinutesFairlyActiveTimeseries(startDate, endDate *time.Time
 // UserMinutesVeryActiveTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserMinutesVeryActiveTimeseries(startDate, endDate *time.Time) (ret *types.MinutesVeryActiveSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("minutesVeryActive", startDate, endDate); err != nil {
@@ -177,6 +187,7 @@ func (c *Client) UserMinutesVeryActiveTimeseries(startDate, endDate *time.Time) 
 // UserStepsTimeseries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserStepsTimeseries(startDate, endDate *time.Time) (ret *types.StepsSeries, err error) {
 	var val interface{}
 	if val, err = c.userActivityTimeseriesByRange("steps", startDate, endDate); err != nil {

@@ -49,7 +49,7 @@ func (d *FitbitDateTime) UnmarshalJSON(b []byte) (err error) {
 	if d.Time, err = time.Parse(DateTimeLayout, s); err == nil {
 		return
 	}
-	// In case of error, try to add the seconds (sometimes the reponse have them)
+	// In case of error, try to add the seconds (sometimes the response have them)
 	if d.Time, err = time.Parse(DateTimeLayout+":05", s); err == nil {
 		return
 	}

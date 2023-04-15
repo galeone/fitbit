@@ -43,7 +43,7 @@ func (c *Client) userBodyTimeseriesByRange(resource string, startDate, endDate *
 	case "weight":
 		ret = &types.BodyWeightSeries{}
 	default:
-		panic(fmt.Sprintf("resouce %s not supported", resource))
+		panic(fmt.Sprintf("resource %s not supported", resource))
 	}
 	err = json.Unmarshal(body, ret)
 	return
@@ -52,6 +52,7 @@ func (c *Client) userBodyTimeseriesByRange(resource string, startDate, endDate *
 // UserBMITimeSeries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserBMITimeSeries(startDate, endDate *time.Time) (ret *types.BMISeries, err error) {
 	var val interface{}
 	if val, err = c.userBodyTimeseriesByRange("bmi", startDate, endDate); err != nil {
@@ -63,10 +64,23 @@ func (c *Client) UserBMITimeSeries(startDate, endDate *time.Time) (ret *types.BM
 // UserBodyWeightTimeSeries retrieves the activity calories over a period of time by specifying a date range.
 // The response will include only the daily summary values.
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
 func (c *Client) UserBodyWeightTimeSeries(startDate, endDate *time.Time) (ret *types.BodyWeightSeries, err error) {
 	var val interface{}
 	if val, err = c.userBodyTimeseriesByRange("weight", startDate, endDate); err != nil {
 		return nil, err
 	}
 	return val.(*types.BodyWeightSeries), err
+}
+
+// UserBodyWeightTimeSeries retrieves the activity calories over a period of time by specifying a date range.
+// The response will include only the daily summary values.
+// The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
+// When it's not present, it returns only the single data point measured during the startDate day.
+func (c *Client) UserBodyFatTimeSeries(startDate, endDate *time.Time) (ret *types.BodyFatSeries, err error) {
+	var val interface{}
+	if val, err = c.userBodyTimeseriesByRange("fat", startDate, endDate); err != nil {
+		return nil, err
+	}
+	return val.(*types.BodyFatSeries), err
 }
