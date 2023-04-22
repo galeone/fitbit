@@ -36,6 +36,8 @@ func (c *Client) UserHeartRateTimeseries(startDate, endDate *time.Time) (ret *ty
 	if body, err = c.resRead(res); err != nil {
 		return
 	}
+
+	ret = &types.HeartRateSeries{}
 	err = json.Unmarshal(body, ret)
 	return
 
