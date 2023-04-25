@@ -26,22 +26,22 @@ type SleepLevel struct {
 }
 
 type SleepLog struct {
-	DateOfSleep         FitbitDate `json:"dateOfSleep"`
-	Duration            int64      `json:"duration"`
-	Efficiency          int64      `json:"efficiency"`
-	EndTime             string     `json:"endTime"`
-	InfoCode            int64      `json:"infoCode"`
-	IsMainSleep         bool       `json:"isMainSleep"`
-	Levels              SleepLevel `json:"levels"`
-	LogID               int64      `json:"logId"`
-	LogType             string     `json:"logType"`
-	MinutesAfterWakeup  int64      `json:"minutesAfterWakeup"`
-	MinutesAsleep       int64      `json:"minutesAsleep"`
-	MinutesAwake        int64      `json:"minutesAwake"`
-	MinutesToFallAsleep int64      `json:"minutesToFallAsleep"`
-	StartTime           string     `json:"startTime"`
-	TimeInBed           int64      `json:"timeInBed"`
-	Type                string     `json:"type"`
+	DateOfSleep         FitbitDate     `json:"dateOfSleep"`
+	Duration            int64          `json:"duration"`
+	Efficiency          int64          `json:"efficiency"`
+	EndTime             FitbitDateTime `json:"endTime"`
+	InfoCode            int64          `json:"infoCode"`
+	IsMainSleep         bool           `json:"isMainSleep"`
+	Levels              SleepLevel     `json:"levels"`
+	LogID               int64          `json:"logId"`
+	LogType             string         `json:"logType"`
+	MinutesAfterWakeup  int64          `json:"minutesAfterWakeup"`
+	MinutesAsleep       int64          `json:"minutesAsleep"`
+	MinutesAwake        int64          `json:"minutesAwake"`
+	MinutesToFallAsleep int64          `json:"minutesToFallAsleep"`
+	StartTime           FitbitDateTime `json:"startTime"`
+	TimeInBed           int64          `json:"timeInBed"`
+	Type                string         `json:"type"`
 }
 
 type SleepData struct {
