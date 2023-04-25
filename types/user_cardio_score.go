@@ -11,7 +11,7 @@ type CardioFitnessScore struct {
 }
 
 type CardioScoreTimePoint struct {
-	DateTime FitbitDateTime   `json:"dateTime"`
+	DateTime FitbitDate       `json:"dateTime"`
 	Value    CardioScoreValue `json:"value"`
 }
 

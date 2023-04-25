@@ -7,7 +7,7 @@ package types
 // /spo2/date/%s.json
 
 type OxygenSaturation struct {
-	DateTime FitbitDateTime        `json:"dateTime"`
+	DateTime FitbitDate            `json:"dateTime"`
 	Value    OxygenSaturationValue `json:"value"`
 }
 
@@ -16,3 +16,5 @@ type OxygenSaturationValue struct {
 	Max float64 `json:"max"`
 	Min float64 `json:"min"`
 }
+
+type OxygenSaturations []OxygenSaturation

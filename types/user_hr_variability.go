@@ -16,6 +16,6 @@ type HeartRateVariabilityValue struct {
 }
 
 type HeartRateVariabilityTimeStep struct {
-	DateTime FitbitDateTime            `json:"dateTime"`
+	DateTime FitbitDate                `json:"dateTime"`
 	Value    HeartRateVariabilityValue `json:"value"`
 }

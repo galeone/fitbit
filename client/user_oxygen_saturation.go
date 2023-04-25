@@ -14,11 +14,11 @@ import (
 	"github.com/galeone/fitbit/types"
 )
 
-// UserOxygenSaturation retrievies the SpO2 summary data for a single date.
+// UserOxygenSaturation retrieves the SpO2 summary data for a single date.
 // SpO2 applies specifically to a user’s “main sleep”, which is the longest single period of time asleep on a given date.
 //
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
-func (c *Client) UserOxygenSaturation(startDate, endDate *time.Time) (ret *types.OxygenSaturation, err error) {
+func (c *Client) UserOxygenSaturation(startDate, endDate *time.Time) (ret *types.OxygenSaturations, err error) {
 	var res *http.Response
 	var sb strings.Builder
 
@@ -36,7 +36,7 @@ func (c *Client) UserOxygenSaturation(startDate, endDate *time.Time) (ret *types
 	if body, err = c.resRead(res); err != nil {
 		return
 	}
-	ret = &types.OxygenSaturation{}
+	ret = &types.OxygenSaturations{}
 	err = json.Unmarshal(body, ret)
 	return
 }

@@ -11,8 +11,8 @@ type CoreTemperature struct {
 }
 
 type CoreTemperatureTimePoint struct {
-	DateTime FitbitDateTime `json:"dateTime"`
-	Value    float64        `json:"value"`
+	DateTime FitbitDate `json:"dateTime"`
+	Value    float64    `json:"value"`
 }
 
 // /temp/skin/date/%s.json
@@ -22,7 +22,7 @@ type SkinTemperature struct {
 }
 
 type SkinTemperatureTimePoint struct {
-	DateTime FitbitDateTime       `json:"dateTime"`
+	DateTime FitbitDate           `json:"dateTime"`
 	LogType  string               `json:"logType"`
 	Value    SkinTemperatureValue `json:"value"`
 }
