@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 // UserSleepLogList retrieves a list of a user's sleep log entries before or after a given date,
@@ -54,7 +54,7 @@ func (c *Client) UserSleepLogList(pagination *types.Pagination) (ret *types.Slee
 	return
 }
 
-// UserSleepLog retrievies a list of a user's sleep log entries for a date range.
+// UserSleepLog retrieves a list of a user's sleep log entries for a date range.
 //
 // The endDate parameter is optional. When present it returns the summary, day-by-day, from startDate to endDate.
 func (c *Client) UserSleepLog(startDate, endDate *time.Time) (ret *types.SleepLogs, err error) {
@@ -80,7 +80,7 @@ func (c *Client) UserSleepLog(startDate, endDate *time.Time) (ret *types.SleepLo
 	return
 }
 
-// UserSleepGoalReport retrievies the user's current sleep goal.
+// UserSleepGoalReport retrieves the user's current sleep goal.
 func (c *Client) UserSleepGoalReport() (ret *types.SleepGoalReport, err error) {
 	var res *http.Response
 	if res, err = c.req.Get(UserV12("/sleep/goal.json")); err != nil {

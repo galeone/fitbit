@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 // UserOxygenSaturationIntraday retrieves s the SpO2 intraday data for a specified date range.

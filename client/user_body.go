@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 func (c *Client) userBodyGoals(goalType string) (ret interface{}, err error) {

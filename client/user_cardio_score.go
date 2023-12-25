@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 // UserCardioFitnessScore retrieves the Cardio Fitness Score (also know as VO2 Max) data for a date range.

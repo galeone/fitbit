@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
-// UserCoreTemperature retrievies Temperature (Core) data for a date range.
+// UserCoreTemperature retrieves Temperature (Core) data for a date range.
 // Temperature (Core) data applies specifically to data logged manually by the user on a given day.
 // It only returns a value for dates on which the Fitbit device was able to record Temperature (Core)
 // data and the maximum date range cannot exceed 30 days.
@@ -43,7 +43,7 @@ func (c *Client) UserCoreTemperature(startDate, endDate *time.Time) (ret *types.
 	return
 }
 
-// UserSkinTemperature retrievies Temperature (Skin) data for a date range.
+// UserSkinTemperature retrieves Temperature (Skin) data for a date range.
 // It only returns a value for dates on which the Fitbit device was able to record
 // Temperature (skin) data and the maximum date range cannot exceed 30 days.
 //

@@ -20,8 +20,8 @@ import (
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/fitbit"
 
-	"github.com/galeone/fitbit/scopes"
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/scopes"
+	"github.com/galeone/fitbit/v2/types"
 	"github.com/google/uuid"
 )
 

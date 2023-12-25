@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 	"github.com/galeone/tcx"
 )
 

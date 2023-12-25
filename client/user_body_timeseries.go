@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 func (c *Client) userBodyTimeseriesByRange(resource string, startDate, endDate *time.Time) (ret interface{}, err error) {
