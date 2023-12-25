@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 // UserBreathingRateIntraday retrieves intraday breathing rate data for a date range.

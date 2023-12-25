@@ -19,3 +19,8 @@ go.work
 
 # .env
 .env
+
+# binaries
+__debug_bin*
+
+.vscode/

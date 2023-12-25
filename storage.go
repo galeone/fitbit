@@ -5,16 +5,16 @@
 package fitbit
 
 import (
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 // Storage is the interface to implement for implementing the persistence
 // layer required by the fitbit client.
 type Storage interface {
-	// InsertAuhorizingUser creates a new AuthorizingUser.
+	// InsertAuthorizingUser creates a new AuthorizingUser.
 	// An AuthorizingUser is an user in the process of giving the
 	// authorization to the fitbit-API-based application.
-	InsertAuhorizingUser(*types.AuthorizingUser) error
+	InsertAuthorizingUser(*types.AuthorizingUser) error
 
 	// UpsertAuthorizedUser creates or updates an AuthorizedUser.
 	// It creates the user if it's not present in the storage. It updates its

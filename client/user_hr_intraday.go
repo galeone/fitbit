@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 // UserHeartRateIntraday retrieves the heart rate intraday time series data on a specific date range for a 24 hour period.

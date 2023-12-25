@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
-// UserBreathingRate retrievies average breathing rate data for a date range.
+// UserBreathingRate retrieves average breathing rate data for a date range.
 // Breathing Rate data applies specifically to a user’s “main sleep,” which is the
 // longest single period of time during which they were asleep on a given date.
 //

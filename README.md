@@ -43,7 +43,7 @@ You also need to be familiar with some Web Framework (not shown).
         HttpOnly: true,
     })
 
-    if err = _db.InsertAuhorizingUser(&authorizing); err != nil {
+    if err = _db.InsertAuthorizingUser(&authorizing); err != nil {
         return err
     }
 

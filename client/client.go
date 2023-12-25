@@ -14,7 +14,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/galeone/fitbit"
+	"github.com/galeone/fitbit/v2"
 )
 
 const (

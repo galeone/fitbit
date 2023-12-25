@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 // UserHeartRateTimeseries retrieves the heart rate time series data over a period of time by specifying a date range.

@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galeone/fitbit/types"
+	"github.com/galeone/fitbit/v2/types"
 )
 
 // UserHeartRateVariability retrieves the Heart Rate Variability (HRV) data for a date range.
