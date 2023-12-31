@@ -172,10 +172,10 @@ type LifetimeStatsSource struct {
 type FavoriteActivities []FavoriteActivity
 
 type FavoriteActivity struct {
-	ActivityID  int64  `json:"activityId"`
-	Description string `json:"description"`
-	Mets        int64  `json:"mets"`
-	Name        string `json:"name"`
+	ActivityID  int64   `json:"activityId"`
+	Description string  `json:"description"`
+	Mets        float64 `json:"mets"`
+	Name        string  `json:"name"`
 }
 
 type MinimalActivity struct {

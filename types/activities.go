@@ -35,8 +35,8 @@ type SubCategory struct {
 type ActivityLevel struct {
 	ID          int64   `json:"id"`
 	MaxSpeedMPH float64 `json:"maxSpeedMPH"`
-	Mets        int64   `json:"mets"`
-	MinSpeedMPH int64   `json:"minSpeedMPH"`
+	Mets        float64 `json:"mets"`
+	MinSpeedMPH float64 `json:"minSpeedMPH"`
 	Name        string  `json:"name"`
 }
 
