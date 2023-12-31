@@ -174,7 +174,7 @@ func (c *Client) UserRecentActivities() (ret *types.RecentActivities, err error)
 // GET: /1/user/[user-id]/activities.json
 func (c *Client) UserLifetimeStats() (ret *types.UserLifeTimeStats, err error) {
 	var res *http.Response
-	if res, err = c.req.Get(UserV1("/activities/favorite.json")); err != nil {
+	if res, err = c.req.Get(UserV1("/activities.json")); err != nil {
 		return
 	}
 	var body []byte
