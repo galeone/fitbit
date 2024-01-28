@@ -4,8 +4,8 @@ go 1.21
 
 require (
 	github.com/galeone/tcx v1.0.0
-	github.com/google/uuid v1.5.0
-	golang.org/x/oauth2 v0.15.0
+	github.com/google/uuid v1.6.0
+	golang.org/x/oauth2 v0.16.0
 )
 
 require (

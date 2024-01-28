@@ -15,6 +15,6 @@ type BreathingRateValue struct {
 }
 
 type BreathingRateTimePoint struct {
-	DateTime FitbitDateTime     `json:"dateTime"`
+	DateTime FitbitDate         `json:"dateTime"`
 	Value    BreathingRateValue `json:"value"`
 }
