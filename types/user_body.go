@@ -13,8 +13,8 @@ type UserWeightGoal struct {
 type WeightGoal struct {
 	GoalType        string     `json:"goalType"`
 	StartDate       FitbitDate `json:"startDate"`
-	StartWeight     int64      `json:"startWeight"`
-	Weight          int64      `json:"weight"`
+	StartWeight     float64    `json:"startWeight"`
+	Weight          float64    `json:"weight"`
 	WeightThreshold float64    `json:"weightThreshold"`
 }
 
