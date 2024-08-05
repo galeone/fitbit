@@ -50,6 +50,11 @@ func (c *Client) UserActivityWeeklyGoal() (ret *types.UserGoal, err error) {
 //
 // GET: /1/user/[user-id]/activities/list.json
 func (c *Client) UserActivityLogList(pagination *types.Pagination) (ret *types.ActivityLogList, err error) {
+	if !pagination.BeforeDate.IsZero() && !pagination.AfterDate.IsZero() {
+		err = fmt.Errorf("cannot use before and after date, please pick one")
+		return
+	}
+
 	var sb strings.Builder
 	sb.WriteString("/activities/list.json?sort=")
 	sb.WriteString(pagination.Sort)
